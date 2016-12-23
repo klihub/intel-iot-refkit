@@ -248,6 +248,8 @@ FEATURE_PACKAGES_computervision-test = "packagegroup-computervision-test"
 #        ${IMAGE_ROOTFS}${sysconfdir}/default/useradd
 # }
 
+inherit ${@bb.utils.contains('DISTRO_FEATURES', 'flatpak', \
+                             'flatpak-image', '', d)}
 IMAGE_LINGUAS = " "
 
 LICENSE = "MIT"
