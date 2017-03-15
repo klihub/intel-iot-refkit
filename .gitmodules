@@ -35,5 +35,5 @@
 [submodule "meta-flatpak"]
 	path = meta-flatpak
 	url = https://github.com/klihub/meta-flatpak.git
-	branch = pr/intel-iot-refkit/initial
+	branch = ostree
 	ignore = untracked
