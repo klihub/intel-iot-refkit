@@ -46,13 +46,30 @@ python imagevariant_virtclass_handler () {
     # Expand parameter aliases, recursively.
     def expand(parameters):
         modified = []
-        for parameter in parameters:
+        recursive = []
+
+        for parameter in parameters or []:
             alias = e.data.getVarFlag('IMAGE_VARIANT', parameter, True)
+
             if alias is not None:
-                modified.extend(expand(alias.split()))
+                split_alias = alias.split()
+                if parameter in split_alias:
+                    # continue expansion with parameter removed to avoid
+                    # infinite recursion
+                    split_alias.remove(parameter)
+                    recursive.append(parameter)
+                try:
+                    modified.extend(expand(split_alias))
+                except RuntimeError as re:
+                    bb.fatal('You probably have a non-trivially ' + \
+                             'recursive imagevariant (%s).\n' + \
+                             'Runtime error: %s.' % (variant, re.message))
             else:
                 modified.append(parameter)
+
+        modified.extend(recursive)
         return modified
+
     parameters = expand(parameters)
 
     # Validate parameters and apply them to IMAGE_FEATURES.
