@@ -84,7 +84,9 @@ class OSTreeUpdate(string.Formatter):
         uefibootdir = os.path.join(uefidir, 'EFI', 'BOOT')
         uefiinternalbootdir = os.path.join(uefidir, 'EFI_internal_storage', 'BOOT')
         uefiappname = glob.glob(os.path.join(uefibootdir, 'boot*.efi'))
-        if len(uefiappname) != 1:
+        if len(uefiappname) < 1:
+            bb.fatal(self.format('No UEFI app in {0}: {1}', uefibootdir, uefiappname))
+        if len(uefiappname) > 1:
             bb.fatal(self.format('Ambiguous UEFI app in {0}: {1}', uefibootdir, uefiappname))
         uefiappname = os.path.basename(uefiappname[0])
 
