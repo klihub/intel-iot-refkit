@@ -24,6 +24,7 @@ REFKIT_LAYERS = " \
   ##OEROOT##/../meta-clang \
   ##OEROOT##/../meta-ros \
   ##OEROOT##/../meta-flatpak \
+  ##OEROOT##/../meta-alix \
   "
 
 # REFKIT_LAYERS += "##OEROOT##/../meta-openembedded/meta-efl"
