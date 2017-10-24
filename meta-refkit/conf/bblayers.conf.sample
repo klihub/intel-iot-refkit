@@ -25,6 +25,7 @@ REFKIT_LAYERS = " \
   ##OEROOT##/../meta-ros \
   ##OEROOT##/../meta-flatpak \
   ##OEROOT##/../meta-alix \
+  ##OEROOT##/../meta-refkit-homebox \
   "
 
 # REFKIT_LAYERS += "##OEROOT##/../meta-openembedded/meta-efl"

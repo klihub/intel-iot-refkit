@@ -43,3 +43,6 @@
 [submodule "meta-alix"]
 	path = meta-alix
 	url = git@github.com:klihub/meta-alix.git
+[submodule "meta-refkit-homebox"]
+	path = meta-refkit-homebox
+	url = git@github.com:klihub/meta-refkit-homebox.git
