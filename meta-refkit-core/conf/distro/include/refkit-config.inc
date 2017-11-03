@@ -53,6 +53,9 @@ REFKIT_DEFAULT_DISTRO_FEATURES += "refkit-gateway"
 # Reconfigure several upstream recipes for the industrial profile.
 REFKIT_DEFAULT_DISTRO_FEATURES += "refkit-industrial"
 
+# Reconfigure/patch several upstream recipes for the homebox profile.
+REFKIT_DEFAULT_DISTRO_FEATURES += "refkit-homebox"
+
 # Misc recipe changes for the Refkit distro. May also be useful
 # for distros not called "refkit" and thus has its own DISTRO_FEATURE and
 # "refkit-config" override.
@@ -80,6 +83,7 @@ DISTRO_FEATURES_OVERRIDES += " \
     refkit-computervision \
     refkit-gateway \
     refkit-industrial \
+    refkit-homebox \
     refkit-groupcheck \
 "
 
